@@ -31,7 +31,7 @@ class MainView(QMainWindow):
             "4","5","6","*",
             "7","8","9","+",
             "0",".","C","-",
-            "="
+            "=","(",")", "D"
         ]
 
         row, col = 0,0
@@ -60,6 +60,8 @@ class MainView(QMainWindow):
                 btn.clicked.connect(self._viewModel.boton_clear)
             elif button == "=":
                 btn.clicked.connect(self._viewModel.obtener_resultado)
+            elif button =="D":
+                btn.clicked.connect(self._viewModel.eliminarUltimaExpresion)
             else:
                 btn.clicked.connect(lambda checked, b=button: self._viewModel.agregar_expresion(b))
         self.layout.addLayout(self.grid_layout)
